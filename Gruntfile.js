@@ -56,7 +56,8 @@ module.exports = function(grunt) {
 
     // Unit tests.
     nodeunit: {
-      tests: ['test/**/*.test.js']
+      e2e: ['test/e2e/**/*.test.js'],
+      unit: ['test/unit/**/*.test.js']
     }
 
   });
@@ -71,7 +72,9 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'pagespeedReport', 'nodeunit']);
+  grunt.registerTask('test:e2e', ['clean', 'pagespeedReport', 'nodeunit:e2e']);
+  grunt.registerTask('test:unit', ['nodeunit:unit']);
+  grunt.registerTask('test', ['test:unit', 'test:e2e']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
