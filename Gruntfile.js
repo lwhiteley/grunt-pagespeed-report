@@ -32,8 +32,8 @@ module.exports = function(grunt) {
     pagespeedReport: {
       mysite: {
         options: {
-          reporters: [ 'console'],
-          key: 'AIzaSyD942uqcWhVA1c7D2fgusgMff6fOq2wRK8', 
+          reporters: [ 'html'],
+          key: 'AIzaSyD942uqcWhVA1c7D2fgusgMff6fOq2wRK8',
           url: 'http://html5rocks.com/en',
           paths: ['/updates', '/resources'],
           locale: 'en_US',     // optional
