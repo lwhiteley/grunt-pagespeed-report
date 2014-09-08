@@ -74,7 +74,7 @@ module.exports = function(grunt) {
   // plugin's task(s), then test the result.
   grunt.registerTask('test:e2e', ['clean', 'pagespeedReport', 'nodeunit:e2e']);
   grunt.registerTask('test:unit', ['nodeunit:unit']);
-  grunt.registerTask('test', ['test:unit', 'test:e2e']);
+  grunt.registerTask('test', ['clean', 'pagespeedReport', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
