@@ -1,6 +1,6 @@
 # grunt-pagespeed-report
 
-> This plugin will run pagespeed tests on urls and generate an html report
+> This plugin will run pagespeed tests on urls and generate reports. See reporting options below.
 
 > [![Build Status](https://travis-ci.org/lwhiteley/grunt-pagespeed-report.svg?branch=master)](https://travis-ci.org/lwhiteley/grunt-pagespeed-report)
 
