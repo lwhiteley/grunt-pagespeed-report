@@ -90,8 +90,12 @@ var setMarker = function(threshold, score){
 };
 
 var normalizeThreshold = function(threshold){
-  if(!_.isNumber(threshold.success)) threshold.success = 80;
-  if(!_.isNumber(threshold.warning)) threshold.warning = 60;
+  if(!_.isNumber(threshold.success)){
+    threshold.success = 80;
+  }
+  if(!_.isNumber(threshold.warning)){
+    threshold.warning = 60;
+  }
 
   if(threshold.success <= threshold.warning){
     threshold.warning = threshold.success - 10;

@@ -13,7 +13,7 @@ var runPageSpeedTests = function(userOptions, generatedContent, callback){
 
   pagespeedonline.pagespeedapi.runpagespeed(userOptions, function(error, req){
        if(error){
-         return done(false);
+         console.log(error);
        }
        req.uuid = uuid.v1();
        req.threshold = util.processThreshold(userOptions.threshold, req.score);

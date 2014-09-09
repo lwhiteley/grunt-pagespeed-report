@@ -24,7 +24,7 @@ module.exports = {
     _.forOwn(data.pageStats, function(value, prop){
       var title = util.toSentence(prop);
       title = util.trimString(title);
-      if(title.indexOf('Bytes') != -1){
+      if(title.indexOf('Bytes') !== -1){
         title = title.replace('Bytes', '');
         grunt.log.writeln(' ', title, util.getTab(title.length), util.roundToTwo(util.bytesToKb(value)), 'Kb');
       }else{
