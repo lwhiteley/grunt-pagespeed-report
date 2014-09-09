@@ -13,7 +13,8 @@ var runPageSpeedTests = function(userOptions, generatedContent, callback){
 
   pagespeedonline.pagespeedapi.runpagespeed(userOptions, function(error, req){
        if(error){
-         console.log(error);
+         grunt.log.error('Cannot proceed, fatal error occurred');
+         grunt.fail.fatal(error);
        }
        req.uuid = uuid.v1();
        req.threshold = util.processThreshold(userOptions.threshold, req.score);
