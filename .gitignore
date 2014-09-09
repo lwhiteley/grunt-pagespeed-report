@@ -1,3 +1,11 @@
+node_modules
+npm-debug.log
+tmp
+.reports/
+
+# Created by http://www.gitignore.io
+
+### Node ###
 # Logs
 logs
 *.log
@@ -20,6 +28,17 @@ coverage
 build/Release
 
 # Dependency directory
-# Deployed apps should consider commenting this line out:
-# see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
+# Commenting this out is preferred by some people, see
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
 node_modules
+
+# Users Environment Variables
+.lock-wscript
+
+
+### grunt ###
+# Grunt usually compiles files inside this directory
+dist/
+
+# Grunt usually preprocesses files such as coffeescript, compass... inside the .tmp directory
+.tmp/
