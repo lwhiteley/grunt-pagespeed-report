@@ -147,7 +147,7 @@ NB.
 For eg. if a page scores 81 and the success threshold is 80 then the marker will be `success`.
 - If the warning is somehow less then the success value then the warning will be set to `10` less than the success value.
 - If `threshold.success` is `0` then no markers will be produced.
-- Passing a number as a threshold ill only set the success criteria. Please use the `object` if you wish to fine tune the threshold
+- Passing a number as a threshold will only set the success criteria. Please use the `object` if you wish to fine tune the threshold
 - It is recommended to configure one task per website/domain. This way you can do `grunt pagespeedReport:mysite` to have a more targeted resultset.
 
 ### Usage Examples
