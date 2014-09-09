@@ -27,7 +27,8 @@ module.exports = function(grunt) {
       locale: 'en_US',
       threshold: 80,
       title: 'PageSpeed Insight',
-      testHome: true
+      testHome: true,
+      dest: '.reports'
     });
 
     var userOptions = this.options();
