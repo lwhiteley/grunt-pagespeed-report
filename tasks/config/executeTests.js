@@ -9,7 +9,7 @@ var validUrl = require('valid-url'),
 var reporters = require('./reporters'),
     util = require('./util/util');
 
-var runPageSpeedTests = function(userOptions, generatedContent, callback){
+var runPageSpeedTests = function(userOptions, generatedContent, done, callback){
 
   pagespeedonline.pagespeedapi.runpagespeed(userOptions, function(error, req){
        if(error){
@@ -23,11 +23,11 @@ var runPageSpeedTests = function(userOptions, generatedContent, callback){
 
        userOptions.reporters.forEach(function(reporter){
          if(reporters.hasOwnProperty(reporter)){
-           reporters[reporter](req, userOptions, generatedContent);
+           reporters[reporter](req, userOptions, generatedContent, callback);
          }
        });
 
-      callback(generatedContent);
+      //callback(generatedContent);
    });
 
    //}

@@ -6,7 +6,7 @@ var moment = require('moment');
 var util = require('../util/util');
 // TODO: make files in tmp dir and then move to path relativ to current working directory
 module.exports = {
-  html: function(data, options, generatedContent){
+  html: function(data, options, generatedContent, callback){
     grunt.log.subhead('Processing html for: ', data.id);
     grunt.log.subhead(util.constants.tabs.equals);
     var dateString = moment().format("MMMM Do YYYY, h:mm:ss A zz");
@@ -43,7 +43,7 @@ module.exports = {
       window.$('.jsdom').remove();
       var indexFile = window.document.documentElement.outerHTML;
       grunt.file.write(indexPath, indexFile);
-
+      callback(generatedContent);
     });
   }
 };

@@ -6,7 +6,7 @@ var format = require("string-template"),
 var util = require('../util/util');
 
 module.exports = {
-  console: function(data, options, generatedContent){
+  console: function(data, options, generatedContent, callback){
 
     //grunt.log.subhead(currentDir);
     grunt.log.writeln('Title:',    util.getTab(42), data.title);
@@ -40,5 +40,6 @@ module.exports = {
     });
 
     grunt.log.subhead(util.constants.tabs.equals);
+    //callback(generatedContent);
   }
 };

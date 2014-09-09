@@ -6,11 +6,12 @@ var jsoni = require('jsoni'),
 var util = require('../util/util');
 
 module.exports = {
-  json: function(data, options, generatedContent){
+  json: function(data, options, generatedContent, callback){
     if(_.isString(options.dest)){
       grunt.file.write(options.dest + '/json/' + generatedContent.task + '.json', jsoni.stringify(generatedContent));
 
     }
+    callback(generatedContent);
   }
 };
 

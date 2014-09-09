@@ -57,7 +57,7 @@ module.exports = function(grunt) {
       async.each(userOptions.paths,
         function(item, callback){
           userOptions.url = util.generateUrl(userOptions.baseUrl, item);
-          runPageSpeedTests(userOptions, generatedContent, function(data){
+          runPageSpeedTests(userOptions, generatedContent, done, function(data){
             generatedContent = data;
             callback();
           });
