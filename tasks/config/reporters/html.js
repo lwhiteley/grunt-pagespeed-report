@@ -6,9 +6,10 @@ var moment = require('moment');
 var util = require('../util/util');
 // TODO: make files in tmp dir and then move to path relativ to current working directory
 module.exports = {
-  html: function(data, options, generatedContent, done){
+  html: function(data, options, generatedContent){
     grunt.log.subhead('Processing html for: ', data.id);
     grunt.log.subhead(util.constants.tabs.equals);
+    var dateString = moment().format("MMMM Do YYYY, h:mm:ss A zz");
     var currentDir = __dirname +'/' ;
     //grunt.file.copy(currentDir+ '../template/html', '.reports');
     var indexPath = currentDir +'template/html/index.html';
@@ -28,8 +29,8 @@ module.exports = {
     var window = _jsdom.parentWindow;
     jsdom.jQueryify(window, 'http://code.jquery.com/jquery-2.1.1.js', function () {
       window.$('#template-doc-title').text(options.title);
-      window.$('.template-overview-table-elm').remove(); //template-date
-      var dateString = moment().format("MMMM Do YYYY, h:mm:ss A zz");
+      window.$('.template-overview-table-elm').remove();
+
       window.$('#template-date').text(dateString);
 
       generatedContent.results.forEach(function(result){

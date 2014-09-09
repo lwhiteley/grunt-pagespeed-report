@@ -10,6 +10,7 @@ var format = require("string-template"),
 
 
 var constants = {
+  output: '.reports',
   tabs: {
     spaces:  '                                                 ',
     hyphens:'-----------------------------------------------------------------------',
@@ -21,7 +22,8 @@ var constants = {
   },
   reporters: {
     console: 'console',
-    html: 'html'
+    html: 'html',
+    json: 'json'
   },
   markers:{
     danger: 'danger',
@@ -111,7 +113,7 @@ var processThreshold = function(value, score){
   if(_.isObject(value)){
     threshold = _.extend(threshold, value);
   }else if(_.isNumber(value)){
-    threshold.success = value;    
+    threshold.success = value;
   }
   threshold = normalizeThreshold(threshold);
   threshold = setMarker(threshold, score);

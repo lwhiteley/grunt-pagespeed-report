@@ -40,8 +40,7 @@ module.exports = function(grunt) {
     if(userOptions.reporters.length < 1){
       userOptions.reporters.push(util.constants.reporters.console);
     }
-    grunt.log.subhead('Processing reporters: ');
-    console.log(' ', userOptions.reporters);
+    grunt.log.subhead('Processing reporters... ');
     grunt.log.writeln(util.constants.tabs.hyphens);
 
     //TODO: validate options
@@ -49,6 +48,7 @@ module.exports = function(grunt) {
 
       var generatedContent = {
         date: new Date().getTime(),
+        task: this.target,
         results: []
       };
 
@@ -65,6 +65,9 @@ module.exports = function(grunt) {
           // All tasks are done now
           //grunt.file.write('tmp/output.json', jsoni.stringify(generatedContent));
           //console.log(generatedContent);
+          //grunt.log.writeln(util.constants.tabs.hyphens);
+          grunt.log.subhead('Finished Processing reporters: ');
+          console.log(' ', userOptions.reporters);
           done();
         }
       );

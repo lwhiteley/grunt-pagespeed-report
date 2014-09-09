@@ -5,7 +5,7 @@ var validUrl = require('valid-url'),
     grunt = require('grunt');
 
 
-var jsoni = require('jsoni');
+
 var reporters = require('./reporters'),
     util = require('./util/util');
 
