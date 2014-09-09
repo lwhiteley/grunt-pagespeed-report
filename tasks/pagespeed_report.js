@@ -13,6 +13,8 @@ var _ = require('lodash'),
 var util = require('./config/util/util');
 var runPageSpeedTests = require('./config/executeTests');
 
+var async = require("async");
+
 module.exports = function(grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
@@ -28,7 +30,6 @@ module.exports = function(grunt) {
       testHome: true
     });
 
-    var done = this.async();
     var userOptions = this.options();
     userOptions = _.extend(options, userOptions);
     var isValidUrl = validUrl.isWebUri(userOptions.url);
@@ -40,14 +41,35 @@ module.exports = function(grunt) {
       userOptions.reporters.push(util.constants.reporters.console);
     }
     grunt.log.subhead('Processing reporters: ');
-    //console.log(' ', userOptions.reporters);
+    console.log(' ', userOptions.reporters);
     grunt.log.writeln(util.constants.tabs.hyphens);
 
     //TODO: validate options
     if(isValidUrl){
-      runPageSpeedTests(userOptions, done);
+
+      var generatedContent = {
+        date: new Date().getTime(),
+        results: []
+      };
+
+      var done = this.async();
+      async.each(userOptions.paths,
+        function(item, callback){
+          userOptions.url = util.generateUrl(userOptions.baseUrl, item);
+          runPageSpeedTests(userOptions, generatedContent, function(data){
+            generatedContent = data;
+            callback();
+          });
+        },
+        function(err){
+          // All tasks are done now
+          //grunt.file.write('tmp/output.json', jsoni.stringify(generatedContent));
+          //console.log(generatedContent);
+          done();
+        }
+      );
+
     }
-    //done();
   });
 
 };

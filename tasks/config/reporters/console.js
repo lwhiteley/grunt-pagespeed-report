@@ -3,11 +3,10 @@ var format = require("string-template"),
     _ = require('lodash'),
     grunt = require('grunt');
 
-var currentDir = __dirname +'/' ;
 var util = require('../util/util');
 
 module.exports = {
-  console: function(data, options, generatedContent, done){
+  console: function(data, options, generatedContent){
 
     //grunt.log.subhead(currentDir);
     grunt.log.writeln('Title:',    util.getTab(42), data.title);
@@ -41,7 +40,5 @@ module.exports = {
     });
 
     grunt.log.subhead(util.constants.tabs.equals);
-
-    //if(generatedContent.counter === options.paths.length - 1) done();
   }
 };
