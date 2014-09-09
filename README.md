@@ -160,3 +160,5 @@ TODO:
 
 ## Release History
 _(Nothing yet)_
+
+License: MIT
