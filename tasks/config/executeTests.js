@@ -20,7 +20,7 @@ var runPageSpeedTests = function(userOptions, generatedContent, done, callback){
        req.threshold = util.processThreshold(userOptions.threshold, req.score);
        req.thresholdMarker = req.threshold.marker;
        generatedContent.results.push(req);
-
+       userOptions.reporters.sort();
        userOptions.reporters.forEach(function(reporter){
          if(reporters.hasOwnProperty(reporter)){
            reporters[reporter](req, userOptions, generatedContent, callback);
