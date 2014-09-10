@@ -29,7 +29,7 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    pagespeedReport: {
+    pagespeed_report: {
       options:{
         key: 'AIzaSyD942uqcWhVA1c7D2fgusgMff6fOq2wRK8',
         paths: ['/updates', '/resources'],
@@ -75,9 +75,9 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test:e2e', ['clean', 'pagespeedReport', 'nodeunit:e2e']);
+  grunt.registerTask('test:e2e', ['clean', 'pagespeed_report', 'nodeunit:e2e']);
   grunt.registerTask('test:unit', ['nodeunit:unit']);
-  grunt.registerTask('test', ['clean', 'pagespeedReport', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'pagespeed_report', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
