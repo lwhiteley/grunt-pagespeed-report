@@ -19,7 +19,7 @@ module.exports = function(grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('pagespeedReport', 'This plugin will run pagespeed tests on urls and generate an html report', function() {
+  grunt.registerMultiTask('pagespeed_report', 'This plugin will run pagespeed tests on urls and generate an html report', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       reporters: [],
