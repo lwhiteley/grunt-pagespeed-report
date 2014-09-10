@@ -36,7 +36,11 @@
     "gruntplugin",
     "pagespeed",
     "googleapi",
-    "report"
+    "report",
+    "json",
+    "console",
+    "html",
+    "insight"
   ],
   "dependencies": {
     "async": "^0.9.0",

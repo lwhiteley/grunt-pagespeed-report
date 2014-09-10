@@ -167,7 +167,8 @@ See example below:
     },
     prod: {
       options: {
-        reporters: ['html', 'json', 'console'],
+        reporters: ['html', 'json', 'console'],,
+        dest:'.reports/prod',
         url: 'http://html5rocks.com/en',
         locale: 'en_GB',     // optional
         strategy: 'desktop',  // optional
@@ -181,7 +182,8 @@ See example below:
         // for eg. this could be a different base url for a test server
         url: 'http://html5rocks.com/en',
         paths: ['/updates'],
-        testHome: false
+        testHome: false,
+        dest:'.reports/test'
       }
     }
   },
