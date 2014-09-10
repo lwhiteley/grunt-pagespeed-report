@@ -56,6 +56,7 @@ module.exports = function(grunt) {
       };
 
       var done = this.async();
+      userOptions.reporters.sort();
       async.each(userOptions.paths,
         function(item, callback){
           userOptions.url = util.generateUrl(userOptions.baseUrl, item);
