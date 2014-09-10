@@ -169,7 +169,7 @@ See example below:
       options: {
         reporters: ['html', 'json', 'console'],
         url: 'http://html5rocks.com/en',
-        locale: 'en_US',     // optional
+        locale: 'en_GB',     // optional
         strategy: 'desktop',  // optional
         threshold: {success: 90, warning: 80}// optional
       }
@@ -180,7 +180,8 @@ See example below:
         key: 'AIzaSyD942uqcWhVA1c7D2fgusgMff6fOq2wRK8',
         // for eg. this could be a different base url for a test server
         url: 'http://html5rocks.com/en',
-        paths: ['/updates']
+        paths: ['/updates'],
+        testHome: false
       }
     }
   },

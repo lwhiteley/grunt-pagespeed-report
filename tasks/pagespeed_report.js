@@ -66,11 +66,7 @@ module.exports = function(grunt) {
         },
         function(err){
           // All tasks are done now
-          //grunt.file.write('tmp/output.json', jsoni.stringify(generatedContent));
-          //console.log(generatedContent);
-          //grunt.log.writeln(util.constants.tabs.hyphens);
-          grunt.log.subhead('Finished Processing reporters: ');
-          console.log(' ', userOptions.reporters);
+          grunt.log.subhead('Finished Processing reporters: ', userOptions.reporters.join().replace(/,/g, ', '));
           done();
         }
       );

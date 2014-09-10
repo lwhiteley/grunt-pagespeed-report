@@ -24,6 +24,8 @@ var runPageSpeedTests = function(userOptions, generatedContent, done, callback){
        userOptions.reporters.forEach(function(reporter){
          if(reporters.hasOwnProperty(reporter)){
            reporters[reporter](req, userOptions, generatedContent, callback);
+         }else{
+           grunt.log.warn('Warning: \''+reporter+'\' is not a known reporter. Cannot Process');
          }
        });
 

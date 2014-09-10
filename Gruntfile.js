@@ -51,7 +51,8 @@ module.exports = function(grunt) {
           reporters: ['json','console'],
           key: 'AIzaSyD942uqcWhVA1c7D2fgusgMff6fOq2wRK8',
           url: 'http://html5rocks.com/en',
-          paths: ['/updates']
+          paths: ['/updates'],
+          testHome: false
         }
       }
     },
