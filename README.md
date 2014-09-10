@@ -40,7 +40,7 @@ grunt.initConfig({
         threshold: 80        // optional
       }
     },
-    otherSite: {
+    other: {
       // Target-specific options go here.
     },
   },
@@ -147,12 +147,47 @@ NB.
 For eg. if a page scores 81 and the success threshold is 80 then the marker will be `success`.
 - If the warning is somehow less then the success value then the warning will be set to `10` less than the success value.
 - If `threshold.success` is `0` then no markers will be produced.
-- Passing a number as a threshold ill only set the success criteria. Please use the `object` if you wish to fine tune the threshold
-- It is recommended when to configure one task per website. This way you can do `grunt pagespeedReport:mysite` to have a more targeted result set.
+- Passing a number as a threshold will only set the success criteria. Please use the `object` if you wish to fine tune the threshold
+- It is recommended to configure one task per website/domain. This way you can do `grunt pagespeedReport:mysite` to have a more targeted resultset.
 
 ### Usage Examples
+
+#### Setting common options
+It is possible to set common options and also override them within each task.
+See example below:
+
+```js
+  pagespeedReport: {
+    options:{
+      key: 'AIzaSyD942uqcWhVA1c7D2fgusgMff6fOq2wRK8',
+      paths: ['/updates', '/resources'],
+      locale: 'en_US',     // optional
+      strategy: 'desktop',  // optional
+      threshold: 80        // optional
+    },
+    prod: {
+      options: {
+        reporters: ['html', 'json', 'console'],
+        url: 'http://html5rocks.com/en',
+        locale: 'en_GB',     // optional
+        strategy: 'desktop',  // optional
+        threshold: {success: 90, warning: 80}// optional
+      }
+    },
+    test: {
+      options: {
+        reporters: ['json','console'],
+        key: 'AIzaSyD942uqcWhVA1c7D2fgusgMff6fOq2wRK8',
+        // for eg. this could be a different base url for a test server
+        url: 'http://html5rocks.com/en',
+        paths: ['/updates'],
+        testHome: false
+      }
+    }
+  },
+```
+
 TODO:
-- Ability to set paths in a global option so different tasks will use those paths and probably different base urls.
 - HTML reporter
 
 ## Contributing

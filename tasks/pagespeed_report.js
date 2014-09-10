@@ -33,6 +33,8 @@ module.exports = function(grunt) {
 
     var userOptions = this.options();
     userOptions = _.extend(options, userOptions);
+
+    //console.log(userOptions);
     var isValidUrl = validUrl.isWebUri(userOptions.url);
     userOptions.baseUrl = userOptions.url;
     if(userOptions.testHome){
@@ -54,6 +56,7 @@ module.exports = function(grunt) {
       };
 
       var done = this.async();
+      userOptions.reporters.sort();
       async.each(userOptions.paths,
         function(item, callback){
           userOptions.url = util.generateUrl(userOptions.baseUrl, item);
@@ -64,11 +67,7 @@ module.exports = function(grunt) {
         },
         function(err){
           // All tasks are done now
-          //grunt.file.write('tmp/output.json', jsoni.stringify(generatedContent));
-          //console.log(generatedContent);
-          //grunt.log.writeln(util.constants.tabs.hyphens);
-          grunt.log.subhead('Finished Processing reporters: ');
-          console.log(' ', userOptions.reporters);
+          grunt.log.subhead('Finished Processing reporters: ', userOptions.reporters.join().replace(/,/g, ', '));
           done();
         }
       );
