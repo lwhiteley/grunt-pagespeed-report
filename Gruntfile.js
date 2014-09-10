@@ -30,26 +30,28 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     pagespeedReport: {
-      mysite: {
+      options:{
+        key: 'AIzaSyD942uqcWhVA1c7D2fgusgMff6fOq2wRK8',
+        paths: ['/updates', '/resources'],
+        locale: 'en_US',     // optional
+        strategy: 'desktop',  // optional
+        threshold: 80        // optional
+      },
+      prod: {
         options: {
           reporters: ['html', 'json', 'console'],
-          key: 'AIzaSyD942uqcWhVA1c7D2fgusgMff6fOq2wRK8',
           url: 'http://html5rocks.com/en',
-          paths: ['/updates', '/resources'],
           locale: 'en_US',     // optional
           strategy: 'desktop',  // optional
           threshold: 80        // optional
         }
       },
-      other: {
+      test: {
         options: {
           reporters: ['json','console'],
           key: 'AIzaSyD942uqcWhVA1c7D2fgusgMff6fOq2wRK8',
           url: 'http://html5rocks.com/en',
-          paths: ['/updates', '/resources'],           // optional
-          locale: 'en_US',     // optional
-          strategy: 'desktop',  // optional
-          threshold: 80        // optional
+          paths: ['/updates']
         }
       }
     },

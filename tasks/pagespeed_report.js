@@ -33,6 +33,8 @@ module.exports = function(grunt) {
 
     var userOptions = this.options();
     userOptions = _.extend(options, userOptions);
+
+    //console.log(userOptions);
     var isValidUrl = validUrl.isWebUri(userOptions.url);
     userOptions.baseUrl = userOptions.url;
     if(userOptions.testHome){
