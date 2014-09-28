@@ -36,19 +36,23 @@
     "gruntplugin",
     "pagespeed",
     "googleapi",
-    "report"
+    "report",
+    "json",
+    "console",
+    "html",
+    "insight"
   ],
   "dependencies": {
     "async": "^0.9.0",
-    "grunt": "~0.4.5",
     "googleapis": "^1.0.11",
+    "grunt": "~0.4.5",
     "jsdom": "^1.0.0-pre.6",
-    "jsoni": "0.0.1",
+    "json-format": "0.0.1",
     "lodash": "^2.4.1",
     "moment": "^2.8.3",
     "node-uuid": "^1.4.1",
     "shelljs": "^0.3.0",
-    "valid-url": "^1.0.9",
-    "string-template": "^0.2.0"
+    "string-template": "^0.2.0",
+    "valid-url": "^1.0.9"
   }
 }

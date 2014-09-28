@@ -40,6 +40,7 @@ module.exports = function(grunt) {
       prod: {
         options: {
           reporters: ['html', 'json', 'console'],
+          dest:'.reports/prod',
           url: 'http://html5rocks.com/en',
           locale: 'en_US',     // optional
           strategy: 'desktop',  // optional
@@ -52,7 +53,8 @@ module.exports = function(grunt) {
           key: 'AIzaSyD942uqcWhVA1c7D2fgusgMff6fOq2wRK8',
           url: 'http://html5rocks.com/en',
           paths: ['/updates'],
-          testHome: false
+          testHome: false,
+          dest:'.reports/test'
         }
       }
     },

@@ -21,14 +21,14 @@ grunt.loadNpmTasks('grunt-pagespeed-report');
 
 NB. If you use [load-grunt-tasks](https://www.npmjs.org/package/load-grunt-tasks) then this step won't be necessary.
 
-## The "pagespeedReport" task
+## The "pagespeed_report" task
 
 ### Overview
 In your project's Gruntfile, add a section named `pagespeedReport` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  pagespeedReport: {
+  pagespeed_report: {
     mySite: {
       options: {
         reporters: [ 'json', 'console'],
@@ -116,7 +116,7 @@ The threshold score dictates what is a pass, warning or failure.
 eg.
 
 ```js
-    pagespeedReport: {
+    pagespeed_report: {
       mySite: {
         options: {
           threshold: 80,
@@ -125,7 +125,7 @@ eg.
     }
 
     //OR
-    pagespeedReport: {
+    pagespeed_report: {
       mySite: {
         options: {
           threshold: {success:80, warning: 70},
@@ -148,7 +148,7 @@ For eg. if a page scores 81 and the success threshold is 80 then the marker will
 - If the warning is somehow less then the success value then the warning will be set to `10` less than the success value.
 - If `threshold.success` is `0` then no markers will be produced.
 - Passing a number as a threshold will only set the success criteria. Please use the `object` if you wish to fine tune the threshold
-- It is recommended to configure one task per website/domain. This way you can do `grunt pagespeedReport:mysite` to have a more targeted resultset.
+- It is recommended to configure one task per website/domain. This way you can do `grunt pagespeed_report:mysite` to have a more targeted resultset.
 
 ### Usage Examples
 
@@ -157,7 +157,7 @@ It is possible to set common options and also override them within each task.
 See example below:
 
 ```js
-  pagespeedReport: {
+  pagespeed_report: {
     options:{
       key: 'AIzaSyD942uqcWhVA1c7D2fgusgMff6fOq2wRK8',
       paths: ['/updates', '/resources'],
@@ -167,7 +167,8 @@ See example below:
     },
     prod: {
       options: {
-        reporters: ['html', 'json', 'console'],
+        reporters: ['html', 'json', 'console'],,
+        dest:'.reports/prod',
         url: 'http://html5rocks.com/en',
         locale: 'en_GB',     // optional
         strategy: 'desktop',  // optional
@@ -181,7 +182,8 @@ See example below:
         // for eg. this could be a different base url for a test server
         url: 'http://html5rocks.com/en',
         paths: ['/updates'],
-        testHome: false
+        testHome: false,
+        dest:'.reports/test'
       }
     }
   },

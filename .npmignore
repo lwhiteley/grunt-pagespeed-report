@@ -1,4 +1,7 @@
-/node_modules/
-/test/
-/tmp/
-/.reports/
+node_modules
+test
+tmp
+.reports
+.travis.yml
+.jshintrc
+.jshintignore
